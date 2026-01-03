@@ -5,6 +5,8 @@
 
 A world map mod for Minecraft: Bedrock Edition
 
+[简体中文](./README.zh_CN.md)
+
 # Features
 
 - [ ] Map and its UI
