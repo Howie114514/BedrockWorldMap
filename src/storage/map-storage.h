@@ -47,13 +47,13 @@ public:
     ~Storage();
 
 private:
-    std::unordered_map<std::string, Chunk&> cachedChunks;
-    std::unordered_map<int, Biome>          biomes;
-    std::mutex                              biomesMtx;
-    std::string                             levelName;
-    std::filesystem::path                   path;
-    leveldb::DB*                            db;
-    leveldb::Options                        ldbOptions;
+    std::unordered_map<std::string, Chunk> cachedChunks;
+    std::unordered_map<int, Biome>         biomes;
+    std::mutex                             biomesMtx;
+    std::string                            levelName;
+    std::filesystem::path                  path;
+    leveldb::DB*                           db;
+    leveldb::Options                       ldbOptions;
 
 public:
     void  writeBiomes();
@@ -63,7 +63,7 @@ public:
     void  putBlock(Point point);
     Point getBlock();
     Chunk readChunk(std::string id);
-    void  updateChunk(Chunk& chunk);
+    void  updateChunk(Chunk chunk);
     void  close();
     void  putChunkToCache(Chunk& chunk);
     void  removeChunkFromCache(std::string id);

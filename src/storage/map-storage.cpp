@@ -16,7 +16,9 @@
 using namespace bedrock_world_map;
 using namespace bedrock_world_map::storage;
 
-std::string getChunkId(Chunk chunk) { return std::to_string(chunk.x) + "_" + std::to_string(chunk.z); }
+std::string bedrock_world_map::getChunkId(Chunk chunk) {
+    return std::to_string(chunk.x) + "_" + std::to_string(chunk.z);
+}
 
 
 #pragma region Storage
@@ -108,7 +110,7 @@ bedrock_world_map::Chunk Storage::readChunk(std::string id) {
     }
 }
 
-void Storage::updateChunk(Chunk& chunk) {
+void Storage::updateChunk(Chunk chunk) {
     RETURN_IF_INVALID;
     if (chunk.isValid) {
         auto id = getChunkId(chunk);
